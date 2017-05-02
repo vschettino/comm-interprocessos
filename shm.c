@@ -2,10 +2,8 @@
                 COMPARTILHANDO MEMORIA ENTRE PROCESSOS
 
     Neste exemplo ve-se como dois processos podem compartilhar uma
-    parte da memória. Lembre-se de que quando um processo realiza
-    um fork, um novo processo filho e criado como uma cópia idêntica
-    das variáveis do processo pai. Após o fork, o pai e o filho
-    podem atualizar suas próprias cópias das variáveis como quiserem,
+
+as das variáveis como quiserem,
     uma vez que não compartilham realmente a variável.
     Aqui mostramos como eles podem compartilhar memória, de modo que
     quando um processo atualizar o valor de uma variavel, o outro pode ver
@@ -59,7 +57,7 @@ int main()
                 b = (int *) shmat(shmid, 0, 0);
 
                 for( i=0; i< 10; i++) {
-                        sleep(5);
+                        sleep(3);
                         printf("\t\t\t Child reads: %d,%d\n",b[0],b[1]);
                 }
                 /* cada processo deve se desacoplar ("detach")
